@@ -1,5 +1,6 @@
 ---
-import Welcome from '../components/Welcome.astro';
+export const prerender = false;
+import Stripe from '../components/Stripe.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +8,10 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <Stripe color="red" />
+  <Stripe color="orange" />
+  <Stripe color="yellow" />
+  <Stripe color="green" />
+  <Stripe color="blue" />
+  <Stripe color="purple" />
 </Layout>

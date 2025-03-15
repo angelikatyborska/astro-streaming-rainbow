@@ -1,0 +1,34 @@
+---
+const { color } = Astro.props
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+if (color === "yellow") {
+  await sleep(1000)
+}
+
+if (color === "green") {
+  await sleep(2000)
+}
+
+if (color === "purple") {
+  await sleep(4000)
+}
+
+
+---
+<div style={`background-color: ${color};`}>
+  ...
+</div>
+
+<style>
+  div {
+    font-size: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
