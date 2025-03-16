@@ -1,0 +1,29 @@
+---
+// import * as Sentry from "@sentry/astro";
+
+import InternalServerError from "./InternalServerError.astro";
+
+// This component should be used the top-level component of every page,
+// to ensure that all errors are caught and reported to Sentry.
+
+// Inspired by https://tobyrushton.com/blog/how-to-catch-astro-ssr-errors
+// Necessary because of https://github.com/withastro/astro/issues/12383
+
+let html;
+
+try {
+  if (Astro.slots.has("default")) {
+    html = await Astro.slots.render("default");
+  }
+} catch (e) {
+  if (import.meta.env.DEV) {
+    throw e;
+  } else {
+    // If your project uses an error tracker like Sentry,
+    // you should send this error to it.
+    // Sentry.captureException(e);
+  }
+}
+---
+
+{html ? <Fragment set:html={html} /> : <InternalServerError />}

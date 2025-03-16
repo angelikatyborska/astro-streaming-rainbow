@@ -1,17 +1,18 @@
 ---
 export const prerender = false;
+import ErrorBoundary from "../components/ErrorBoundary.astro";
 import Stripe from '../components/Stripe.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-  <Stripe color="red" />
-  <Stripe color="orange" />
-  <Stripe color="yellow" />
-  <Stripe color="green" />
-  <Stripe color="blue" />
-  <Stripe color="purple" />
-</Layout>
+<!--<ErrorBoundary>-->
+  <Layout>
+    <Stripe color="red" sleep={0} />
+    <Stripe color="orange" sleep={500} />
+    <Stripe color="yellow" sleep={2000} />
+    <Stripe color="green" sleep={0} />
+    <Stripe color="blue" sleep={0} />
+    <Stripe color="purple" sleep={4000} />
+  </Layout>
+<!--</ErrorBoundary>-->
