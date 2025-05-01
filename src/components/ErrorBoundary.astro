@@ -3,6 +3,11 @@
 
 import InternalServerError from "../layouts/InternalServerError.astro";
 
+// 01.05.2025 update: DO NOT USE THIS PATTERN!
+// It causes Astro to insert assets in the DOM before the opening <html> tag.
+// It's also no longer necessary for sending all errors to Sentry,
+// Get @sentry/astro v9.12.0: https://github.com/getsentry/sentry-javascript/pull/15995
+
 // This component should be used the top-level component of every page,
 // to ensure that all errors are caught and reported to Sentry.
 
